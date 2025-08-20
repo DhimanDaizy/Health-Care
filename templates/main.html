@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to SmartCare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #000000, #520d0d, #a80b0b);
+      color: #fffff0;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .tip-box {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-center p-6">
+
+  <h1 class="text-5xl font-extrabold text-teal-300 drop-shadow-lg mb-4">Welcome to SmartCare</h1>
+  <p class="text-lg text-gray-200 mb-6">Your trusted AI-powered healthcare assistant</p>
+
+  <div class="mb-6">
+    <img src="{{ url_for('static', filename='template/hospital.png') }}" 
+         alt="Healthcare animation" 
+         class="rounded-xl shadow-2xl w-80 h-auto mx-auto border-4 border-cyan-500">
+  </div>
+
+  <div id="tipBox" class="tip-box text-md font-medium text-emerald-900 bg-emerald-100 px-4 py-3 rounded-xl mb-6 shadow-lg w-fit">
+    💡 Loading health tip...
+  </div>
+
+  <a href="{{ url_for('index') }}">
+    <img src="https://storage.googleapis.com/a1aa/image/7fd55b8c-4490-4d4d-e0c5-e97cfa18106c.jpg" 
+         alt="Start App" 
+         class="w-64 hover-scale shadow-2xl cursor-pointer rounded-xl border-4 border-indigo-500">
+    <p class="text-indigo-200 mt-3 font-semibold tracking-wide">Click the image to start your checkup</p>
+  </a>
+
+  <script>
+    const tips = [
+      "💡 Stay hydrated and take regular walks to boost your immune system!",
+      "💡 Aim for 7-8 hours of quality sleep every night for better health.",
+      "💡 Wash your hands regularly to prevent infections.",
+      "💡 Eat a balanced diet with fruits and vegetables every day.",
+      "💡 Take deep breaths and manage stress for a healthier mind.",
+      "💡 Limit screen time and take breaks to rest your eyes.",
+      "💡 Stay updated with your vaccinations and check-ups."
+    ];
+
+    function updateTip() {
+      const now = new Date();
+      const index = now.getHours() % tips.length; // Change every hour
+      document.getElementById("tipBox").innerText = tips[index];
+    }
+
+    updateTip();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartCare | Health Info</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-attachment: fixed;
+      color: #ecf0f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png"),
+                        linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+      color: #2c3e50;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #1abc9c;
+      font-size: 28px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #1abc9c;
+      outline: none;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      background: #ecf0f1;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #2c3e50;
+      font-size: 14px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(to right, #27ae60, #2ecc71);
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 25px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.4s ease;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(to right, #229954, #27ae60);
+    }
+
+    .admin-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #2980b9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .admin-link:hover {
+      color: #1f6391;
+      text-decoration: underline;
+    }
+
+    .graphic-top-left {
+      position: absolute;
+      top: 0px;
+      left: -40px;
+      width: 100px;
+      opacity: 1;
+    }
+
+    .graphic-bottom-right {
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 100px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" method="POST" action="/form-submit">
+    <img src="static/template/1pic.png" alt="Graphic" class="graphic-top-left">
+    <img src="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" alt="Graphic" class="graphic-bottom-right">
+
+    <h2>Welcome to SmartCare</h2>
+    <p>Please fill out your basic health information.</p>
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required />
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Pre-existing Conditions:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="conditions" value="Diabetes" /> Diabetes</label>
+      <label><input type="checkbox" name="conditions" value="Hypertension" /> Hypertension</label>
+      <label><input type="checkbox" name="conditions" value="Asthma" /> Asthma</label>
+      <label><input type="checkbox" name="conditions" value="Heart Disease" /> Heart Disease</label>
+    </div>
+
+    <label for="medications">Current Medications:</label>
+    <textarea id="medications" name="medications" rows="3"></textarea>
+
+    <label for="email">Email (optional):</label>
+    <input type="email" id="email" name="email" />
+
+    <button class="submit-btn" type="submit">Proceed to Symptom Checker</button>
+
+    <a class="admin-link" href="/admin">Admin Dashboard</a>
+  </form>
+</body>
+</html>

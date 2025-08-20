@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Symptom Checker - SmartCare</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #d0f0f8, #e4f9fb);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .symptom-box {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #1b4965;
+      text-align: center;
+      font-size: 26px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 16px;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      background-color: #fafdff;
+    }
+
+    button {
+      margin-top: 25px;
+      background-color: #3498db;
+      color: white;
+      padding: 14px;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2d80b5;
+    }
+
+    .chatbot-graphic {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      animation: rotate 6s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: translateX(-50%) rotate(0deg); }
+      100% { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    .subtitle {
+      font-size: 14px;
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="symptom-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Chatbot" class="chatbot-graphic" />
+    <h2>Describe Your Symptoms</h2>
+    <p class="subtitle">SmartCare’s AI assistant will analyze your symptoms and provide suggestions</p>
+    <form method="POST" action="/chat">
+      <textarea name="symptoms" placeholder="E.g., Fever, body ache, sore throat, etc." required></textarea>
+      <button type="submit">Submit Symptoms</button>
+    </form>
+  </div>
+</body>
+</html>

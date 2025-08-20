@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Health Summary</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e8fafd, #f4fbff);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 850px;
+      background-color: white;
+      margin: 40px auto;
+      padding: 40px 50px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #1b4965;
+      margin-bottom: 20px;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background-color: #eaf7f0;
+      border-left: 5px solid #27ae60;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #2c3e50;
+    }
+
+    .generate-report {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .generate-report a {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #2980b9;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .generate-report a:hover {
+      background-color: #1f6391;
+    }
+
+    .feedback {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .feedback-buttons {
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 15px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .yes {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .yes:hover {
+      background-color: #27ae60;
+    }
+
+    .no {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .no:hover {
+      background-color: #c0392b;
+    }
+
+    .restart {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .restart a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .restart a:hover {
+      color: #1f6391;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🩺 Your AI Health Assistant Summary</h2>
+    <pre>{{ response }}</pre>
+
+    <div class="generate-report">
+      <a href="/generate-report" target="_blank">📄 Generate Detailed Report</a>
+    </div>
+
+    <div class="feedback">
+      <p>Was this information helpful?</p>
+      <div class="feedback-buttons">
+        <button class="yes" onclick="alert('Thanks for your feedback!')">Yes</button>
+        <button class="no" onclick="alert('We’ll try to improve. Thanks!')">No</button>
+      </div>
+    </div>
+
+    <div class="restart">
+      <p><a href="/">Start a new checkup</a></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SmartCare - Health Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f9f9;
+            padding: 60px 40px;
+            color: #2c3e50;
+            position: relative;
+            margin: 0;
+        }
+
+        .report-box {
+            background: #ffffff;
+            padding: 60px 70px;
+            max-width: 1000px;
+            margin: auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid red;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brand {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            color: #219150;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 10px 0;
+        }
+
+        pre {
+            background: #e8f6f3;
+            border-left: 5px solid #27ae60;
+            padding: 18px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .download-link {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 40px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .download-link:hover {
+            background: #219150;
+        }
+
+        .link-wrapper {
+            text-align: center;
+        }
+
+        /* Watermark styling */
+        .watermark {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            color: rgba(200, 200, 200, 0.1);
+            font-weight: bold;
+            z-index: 1;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .report-box {
+                box-shadow: none;
+                border: 2px solid red;
+                padding: 50px 60px;
+            }
+
+            .download-link {
+                display: none;
+            }
+
+            .watermark {
+                font-size: 80px;
+                color: rgba(200, 200, 200, 0.08);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">SMARTCARE</div>
+
+    <div class="report-box">
+        <div class="brand">🌿 SmartCare</div>
+        <h2>Health Summary Report</h2>
+
+        <p><strong>Patient Name:</strong> {{ user.name }}</p>
+        <p><strong>Age:</strong> {{ user.age }}</p>
+        <p><strong>Gender:</strong> {{ user.gender }}</p>
+        <p><strong>Conditions:</strong> {{ user.conditions | join(', ') if user.conditions else 'None' }}</p>
+        <p><strong>Medications:</strong> {{ user.medications or 'None' }}</p>
+
+        <p><strong>Symptoms:</strong></p>
+        <pre>{{ symptoms }}</pre>
+
+        <p><strong>AI Health Assistant Response:</strong></p>
+        <pre>{{ ai_response }}</pre>
+
+        <div class="link-wrapper">
+            <a href="/download-report" class="download-link">⬇ Download PDF Report</a>
+        </div>
+    </div>
+</body>
+</html>
