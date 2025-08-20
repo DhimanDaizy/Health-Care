@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.secret_key = "your-secret-key"
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDWCA58AtifqtKVpDDvhfBJlfsaioCKiEo")
-model = genai.GenerativeModel("gemini-1.5-flash")
+genai.configure(api_key="AIzaSyAnC6Nfv2P84-AuKiSdPx9KIEIwzp9C-hE")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 # File to store reports
 REPORTS_FILE = "reports.json"
